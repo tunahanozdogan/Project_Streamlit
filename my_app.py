@@ -7,8 +7,8 @@ from sklearn.preprocessing import OrdinalEncoder
 
 st.sidebar.title('Car Price Prediction')
 html_temp = """
-<div style="background-color:blue;padding:10px">
-<h2 style="color:white;text-align:center;">Streamlit ML Cloud App </h2>
+<div style="background-color:orange;padding:20px">
+<h2 style="color:blue;text-align:center;">Streamlit ML Cloud App </h2>
 </div>"""
 st.markdown(html_temp, unsafe_allow_html=True)
 
@@ -46,3 +46,4 @@ st.subheader("Press predict if configuration is okay")
 if st.button("Predict"):
     prediction = ds13_model.predict(df2)
     st.success("The estimated price of your car is €{}. ".format(int(prediction[0])))
+    st.markdown("<h2 style='text-align: center; color: green;'>The estimated price of your car is €{:,}</h2>".format(int(prediction[0])), unsafe_allow_html=True)
